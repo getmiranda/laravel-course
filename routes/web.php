@@ -12,7 +12,6 @@
 */
 
 Route::get('/', 'PagesController@inicio') -> name('index');
-Route::get('/notas/{id}', 'PagesController@detalle') -> name('notas.detalle');
 
 //Para probar las rutas debajo, hay que comentar las demás.
 
@@ -55,6 +54,12 @@ Route::get('blog', 'PagesController@blog') -> name('blog');
 Route::get('nosotros/{nombre?}', 'PagesController@nosotros') -> name('nosotros');
 
 Route::post('/', 'PagesController@crear') -> name('notas.crear');
+
+Route::get('notas/{id}', 'PagesController@detalle') -> name('notas.detalle');
+
+Route::get('notas/edit/{id}', 'PagesController@edit') -> name('notas.edit');
+
+Route::put('notas/edit/{id}', 'PagesController@update') -> name('notas.update');
 //-----------------------------------------
 
 Route::get('operadores/+/{n1}/{n2}', function($n1, $n2){

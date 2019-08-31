@@ -48,4 +48,24 @@ class PagesController extends Controller
 
         return back()->with('mensaje', 'Nota guardada!');
     }
+
+    public function edit($id){
+        $nota = App\Nota::findOrFail($id);
+        return view('notas.edit', compact('nota'));
+    }
+
+    public function update(Request $request, $id){
+        $request->validate([
+            'nombre' => 'required',
+            'description' => 'required'
+        ]);
+
+        $nota = App\Nota::findOrFail($id);
+
+        $nota->nombre = $request->nombre;
+        $nota->description = $request->description;
+        $nota->save();
+
+        return back()->with('mensaje', 'Nota modificada!');
+    }
 }

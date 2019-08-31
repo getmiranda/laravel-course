@@ -12,29 +12,31 @@
     </div>
 @endif
 
-@error('nombre')
+<h1 class="display-"> Agregar</h1>
+
+{{-- formulario --}}
+<form action="{{ route('notas.crear') }}" method="POST">
+  @csrf
+  @error('nombre')
     <div class="alert alert-danger">
       Nombre es un campo requerido
     </div>
-@enderror
+  @enderror
 
-@if ($errors->has('description'))
-    <div class="alert alert-danger alert-dismissible fade show">
-      Descripcion es un campo requerido
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true" >&times;</span>
-      </button>
-    </div>
-@endif
+  @if ($errors->has('description'))
+      <div class="alert alert-danger alert-dismissible fade show">
+        Descripcion es un campo requerido
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true" >&times;</span>
+        </button>
+      </div>
+  @endif
 
-<h1 class="display-"> Agregar</h1>
-
-<form action="{{ route('notas.crear') }}" method="POST">
-  @csrf
-<input type="text" class="form-control mb-2" name="nombre" placeholder="Nombre" value="{{ old('nombre') }}">
+  <input type="text" class="form-control mb-2" name="nombre" placeholder="Nombre" value="{{ old('nombre') }}">
   <input type="text" class="form-control mb-2" name="description" placeholder="Descripción" value="{{ old('description') }}">
   <button class="btn btn-primary btn-block" type="submit">Add</button>
 </form>
+{{-- End formulario --}}
 
 <h1 class="display-4">Notas</h1>
   <table class="table table-dark">
@@ -43,10 +45,11 @@
         <th scope="col">#id</th>
         <th scope="col">Nombre</th>
         <th scope="col">Descripción</th>
-        <th scope="col">Handle</th>
+        <th scope="col">Acciones</th>
       </tr>
     </thead>
     <tbody>
+      {{-- Cuerpo de notas --}}
       @foreach ($notas as $item) 
         <tr>
           <th scope="row">{{ $item->id }}</th>
@@ -56,9 +59,12 @@
             </a>
           </td>
           <td>{{ $item->description}}</td>
-          <td>@mdo</td>
+          <td>
+          <a href="{{ route('notas.edit', $item) }}" class="btn btn-warning btn-sm">Edit</a>
+          </td>
         </tr>
       @endforeach
+      {{-- Fin cuerpo de notas --}}
   </tbody>
   </table>
 @endsection
