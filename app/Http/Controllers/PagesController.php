@@ -12,7 +12,7 @@ class PagesController extends Controller
         $notas = App\Nota::all();
         return view('first', compact('notas'));
     }
-
+ 
     public function nosotros($nombre = null){
         $array = ['Miranda', 'Villagrán'];
 
@@ -34,6 +34,12 @@ class PagesController extends Controller
 
     public function crear(Request $request){
         // return $request->all();
+        //Los conmbre deben llamarse igual que los input del formulario
+        $request->validate([
+            'nombre' => 'required',
+            'description' => 'required'
+        ]);
+
         $nota = new App\Nota;
         $nota->nombre = $request->nombre;
         $nota->description = $request->description;
