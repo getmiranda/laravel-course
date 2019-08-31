@@ -60,9 +60,19 @@
           </td>
           <td>{{ $item->description}}</td>
           <td>
-          <a href="{{ route('notas.edit', $item) }}" class="btn btn-warning btn-sm">Edit</a>
+            
+            {{-- Boton editar --}}
+            <a href="{{ route('notas.edit', $item) }}" class="btn btn-warning btn-sm">Edit</a>
+
+            {{-- Boton eliminar --}}
+            <form action="{{ route('notas.delete', $item) }}" class="d-inline" method="POST">
+              @csrf
+              @method('DELETE')
+              <button class="btn btn-danger btn-sm">Delete</button>          
+            </form>
+
           </td>
-        </tr>
+        </tr> 
       @endforeach
       {{-- Fin cuerpo de notas --}}
   </tbody>

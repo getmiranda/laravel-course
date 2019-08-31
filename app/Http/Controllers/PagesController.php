@@ -68,4 +68,11 @@ class PagesController extends Controller
 
         return back()->with('mensaje', 'Nota modificada!');
     }
+
+    public function delete($id){
+        $nota = App\Nota::findOrFail($id);
+        $nota->delete();
+
+        return back()->with('mensaje', 'La nota ha sido eliminada!');
+    }
 }

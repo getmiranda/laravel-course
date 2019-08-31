@@ -60,6 +60,8 @@ Route::get('notas/{id}', 'PagesController@detalle') -> name('notas.detalle');
 Route::get('notas/edit/{id}', 'PagesController@edit') -> name('notas.edit');
 
 Route::put('notas/edit/{id}', 'PagesController@update') -> name('notas.update');
+
+Route::delete('notas/delete/{id}', 'PagesController@delete') -> name('notas.delete');
 //-----------------------------------------
 
 Route::get('operadores/+/{n1}/{n2}', function($n1, $n2){
