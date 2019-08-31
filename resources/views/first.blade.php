@@ -60,7 +60,7 @@
           </td>
           <td>{{ $item->description}}</td>
           <td>
-            
+
             {{-- Boton editar --}}
             <a href="{{ route('notas.edit', $item) }}" class="btn btn-warning btn-sm">Edit</a>
 
@@ -77,4 +77,5 @@
       {{-- Fin cuerpo de notas --}}
   </tbody>
   </table>
+  {{ $notas->links() }}
 @endsection
