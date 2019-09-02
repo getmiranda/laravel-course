@@ -36,8 +36,8 @@ class CalculadoraController extends Controller
     public function store(Request $request)
     {    
         $request->validate([
-            'num1' => 'required',
-            'num2' => 'required',
+            'num1' => 'required|regex:([0-9]+)',
+            'num2' => 'required|regex:([0-9]+)',
             'operaciones' => 'required',
         ]);
         //Primera forma
