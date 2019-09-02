@@ -18,6 +18,7 @@
       <a href="{{ route('blog') }}" class="btn btn-primary" >Blog</a>
       <a href="{{ route('nosotros') }}" class="btn btn-primary">Nosotros</a>
       <a href="{{ route('operaciones') }}" class="btn btn-primary">Operaciones</a>
+      <a href="{{ route('calculate.create') }}" class="btn btn-primary">Calculadora</a>
     </div>
 
     <!-- Contenedor dinamico -->

@@ -90,3 +90,5 @@ Route::resource('operaciones', 'OperacionesController') ->names([
     'create' => 'operaciones',
     'store' => 'resultado'
 ]);
+
+Route::resource('calculate', 'CalculadoraController');
