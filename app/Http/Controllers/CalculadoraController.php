@@ -35,6 +35,11 @@ class CalculadoraController extends Controller
      */
     public function store(Request $request)
     {    
+        $request->validate([
+            'num1' => 'required',
+            'num2' => 'required',
+            'operaciones' => 'required',
+        ]);
         //Primera forma
         $cal = new Calculadora; // Instanciamos una clase del modelo Note
 
@@ -59,10 +64,20 @@ class CalculadoraController extends Controller
             case 4: //Multiplicacion
                 $res = $cal->mul($num1, $num2);
                 break;
+            
+            default:
+                $res = 0;
+                break;
+        }
+
+        if ($res != 0) {
+            $msj = 'The result is: '.$res;
+        }else {
+            $msj = 'Choose an operation';
         }
 
         //return view('tablas.resultado', compact('res'));
-        return back()->with('mensaje', 'El resultado es: '.$res);
+        return back()->with('mensaje', $msj);
         
     }
 
