@@ -92,3 +92,5 @@ Route::resource('operaciones', 'OperacionesController') ->names([
 ]);
 
 Route::resource('calculate', 'CalculadoraController');
+
+Route::resource('novela', 'NovelaController');

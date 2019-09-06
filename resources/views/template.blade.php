@@ -19,6 +19,7 @@
       <a href="{{ route('nosotros') }}" class="btn btn-primary">Nosotros</a>
       <a href="{{ route('operaciones') }}" class="btn btn-primary">Operaciones</a>
       <a href="{{ route('calculate.create') }}" class="btn btn-primary">Calculadora</a>
+      <a href="{{ route('novela.create') }}" class="btn btn-primary">New novelas</a>
     </div>
 
     <!-- Contenedor dinamico -->

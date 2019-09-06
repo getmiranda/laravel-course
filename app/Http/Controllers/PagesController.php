@@ -43,6 +43,7 @@ class PagesController extends Controller
         $nota = new App\Nota;
         $nota->nombre = $request->nombre;
         $nota->description = $request->description;
+        $nota->image = 'null';
 
         $nota->save();
 
